@@ -4,6 +4,7 @@ import Hero from './components/Hero'
 import Features from './components/Features'
 import Footer from './components/Footer'
 import CreateShipmentPage from './pages/CreateShipmentPage'
+import PrivacyPolicyPage from './pages/PrivacyPolicyPage'
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState('home')
@@ -31,6 +32,8 @@ export default function App() {
         <main>
           {currentPage === 'create-shipment' ? (
             <CreateShipmentPage onNavigate={setCurrentPage} />
+          ) : currentPage === 'privacy' ? (
+            <PrivacyPolicyPage onNavigate={setCurrentPage} />
           ) : (
             <>
               <Hero onNavigate={setCurrentPage} />
@@ -38,7 +41,7 @@ export default function App() {
             </>
           )}
         </main>
-        <Footer />
+        <Footer onNavigate={setCurrentPage} />
       </div>
     </div>
   )
