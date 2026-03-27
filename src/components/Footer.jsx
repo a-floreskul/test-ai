@@ -1,4 +1,4 @@
-export default function Footer() {
+export default function Footer({ onNavigate }) {
   return (
     <footer className="border-t border-white/[0.06] py-10 px-6">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
@@ -19,7 +19,13 @@ export default function Footer() {
 
         {/* Links */}
         <div className="flex items-center gap-1">
-          {['Privacy', 'Terms', 'Contact'].map((label) => (
+          <button
+            onClick={() => onNavigate('privacy')}
+            className="px-3 py-1.5 text-sm text-white/30 hover:text-white/70 rounded-lg hover:bg-white/[0.05] transition-all duration-200"
+          >
+            Privacy
+          </button>
+          {['Terms', 'Contact'].map((label) => (
             <a
               key={label}
               href="#"
